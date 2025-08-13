@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Detection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛡️ Spam Detection Tool</h1>
+            <p>Enter your message below to check if it's spam or legitimate</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <form id="spam-form">
+                    <div class="form-group">
+                        <label for="message-input">Message to analyze:</label>
+                        <textarea 
+                            id="message-input" 
+                            name="message" 
+                            placeholder="Enter your message here..."
+                            rows="6"
+                            required
+                        ></textarea>
+                    </div>
+                    <button type="submit" id="analyze-btn">
+                        <span class="btn-text">Analyze Message</span>
+                        <span class="btn-loading" style="display: none;">Analyzing...</span>
+                    </button>
+                </form>
+            </div>
+
+            <div class="result-section" id="result-section" style="display: none;">
+                <div class="result-card">
+                    <div class="result-header">
+                        <h3>Analysis Result</h3>
+                        <span class="result-badge" id="result-badge"></span>
+                    </div>
+                    <div class="result-content">
+                        <p class="result-text" id="result-text"></p>
+                        <div class="confidence-bar">
+                            <label>Confidence Level:</label>
+                            <div class="progress-container">
+                                <div class="progress-bar" id="progress-bar"></div>
+                                <span class="progress-text" id="progress-text">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="analyze-another" id="analyze-another">Analyze Another Message</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by Machine Learning • Built by Ehsan</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
