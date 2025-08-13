@@ -4,9 +4,9 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import accuracy_score
+import joblib
 
-
-df =pd.read_csv("backend/spam_assassin.csv")
+df =pd.read_csv("spam_assassin.csv")
 
 x=df['text']
 y=df['target']
@@ -18,6 +18,13 @@ model=MultinomialNB()
 model.fit(X_train_vec,y_train)
 y_pred=model.predict(X_test_vec)
 accuracy=accuracy_score(y_test,y_pred)
-# print(accuracy)
+
+joblib.dump(model, 'model.pkl')
+joblib.dump(vec, 'vectorizer.pkl')
+
+
+
+
+
 
 
