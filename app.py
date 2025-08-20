@@ -1,12 +1,13 @@
 from flask import Flask, request, jsonify,render_template
 import joblib
+from flask_cors import CORS
 
 model = joblib.load("model.pkl")
 vectorizer = joblib.load("vectorizer.pkl")
 
 
 app = Flask(__name__)
-
+CORS(app)
 
 @app.route('/')
 def home():
